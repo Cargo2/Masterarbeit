@@ -1,0 +1,15 @@
+import { Injectable } from '@angular/core';
+import { Order } from '../shared/models/Orders';
+import { sampleOrders } from '../../data';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OrdersService {
+
+  constructor() { }
+
+  getAll():Order[]{
+    return sampleOrders;
+  }
+}

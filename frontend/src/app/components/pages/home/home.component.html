@@ -1,0 +1,20 @@
+<ul>
+    <div class="article--recommended article--recommended_wrapper">
+        <div class="gfg-similar-reads-list">
+            <a *ngFor="let wa of orders">
+                <a class="gfg-similar-read-item">
+                    <div class="gfg-similar-read-item-content">
+                        <div class="gfg-similar-read-item-heading">
+                            <img [src]="wa.orderType" alt="{{wa.headerText}}"/>
+                            {{wa.headerText}}
+                        </div>
+                        <div class="gfg-similar-read-item-subheading">
+                            {{wa.description}}
+                        </div>
+                    </div>
+                </a>
+                
+            </a>
+        </div>
+    </div>    
+</ul>    
