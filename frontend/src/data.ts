@@ -5,7 +5,7 @@ export const sampleOrders: Order[] = [
         {
             id: '1',
             headerText: 'User Exit einrichten',
-            description: 'This is a description for order 1',
+            description: 'This is a description for order 1 Hallo ich bin der Markus und ich muss einen User Exit einrichten für den Übertrag eines BEtrages in die Belegposition von SD nach FI ',
             module: ['module1', 'module2'],
             spro: ['spro1', 'spro2'],
             stack: 'stack1',

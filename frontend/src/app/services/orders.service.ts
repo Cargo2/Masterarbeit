@@ -12,4 +12,8 @@ export class OrdersService {
   getAll():Order[]{
     return sampleOrders;
   }
+
+  getOrdersBySearchTerm(searchTerm:string){
+    return this.getAll().filter(order => order.headerText.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
 }
