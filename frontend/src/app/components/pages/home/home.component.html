@@ -1,20 +1,21 @@
+<app-search></app-search>
 <ul>
-    <div class="article--recommended article--recommended_wrapper">
-        <div class="gfg-similar-reads-list">
-            <a *ngFor="let wa of orders">
-                <a class="gfg-similar-read-item">
-                    <div class="gfg-similar-read-item-content">
-                        <div class="gfg-similar-read-item-heading">
-                            <img [src]="wa.orderType" alt="{{wa.headerText}}"/>
-                            {{wa.headerText}}
+    <div class="container">
+        <a *ngFor="let wa of orders" >
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="card flex-md-row mx-auto mb-4 box-shadow h-md-250">
+                        <img class="card-img-bottom mx-auto text-center" [src]="wa.orderType" alt="Card image cap">
+                        <div class="card-body d-flex flex-column align-items-start">
+                          <h3 class="mb-0">
+                            <a class="text-dark" href="#">{{wa.headerText}}</a>
+                          </h3>
+                          <div class="mb-1 text-muted">Nov 11</div>
+                          <p class="card-text mb-auto">{{wa.description}}</p>
                         </div>
-                        <div class="gfg-similar-read-item-subheading">
-                            {{wa.description}}
-                        </div>
-                    </div>
-                </a>
-                
-            </a>
-        </div>
-    </div>    
-</ul>    
+                      </div>
+                </div>  
+            </div>
+        </a>
+    </div>
+</ul>
