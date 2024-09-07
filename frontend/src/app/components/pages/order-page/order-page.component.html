@@ -1,0 +1,28 @@
+<div class="container" style="background-color: beige;">
+    <div class="main-content">
+        <div style="margin-top: 16px;">
+            <h2>{{order.headerText}}</h2>
+        </div>
+        <p>{{order.id}}</p>
+    </div>
+</div>
+
+  <div class="container">
+    <div class="main-content">
+        <h2>Beschreibung</h2>
+        <p>{{order.description}}</p>
+    </div>
+    <div class="sidebar">
+        <h6><b>Start</b></h6>
+        {{order.startDate}}
+        <h6><b>Ort</b></h6>
+        <h6><b>Eingestellt</b></h6>
+        <h6><b>Ansprechpartner</b></h6>
+        {{order.contactdirect}}
+        <h6><b>ID</b></h6>
+        {{order.id}}
+        <h6><b>Modul(e)</b></h6>
+            <tr *ngFor="let wa of order.module">{{wa}}</tr>
+        <h6><b>Einsatzart</b></h6>
+    </div>
+</div>
