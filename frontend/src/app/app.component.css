@@ -1,0 +1,29 @@
+ 
+    /* Default styles for .container */
+
+    /* Media query for small devices (up to 576px) */
+    @media (max-width: 576px) {
+        /* Styles for small devices */
+    }
+
+    /* Media query for medium devices (between 576px and 768px) */
+    @media (min-width: 576px) and (max-width: 768px) {
+        /* Styles for medium devices */
+    }
+
+    /* Media query for large devices (between 768px and 992px) */
+    @media (min-width: 768px) and (max-width: 992px) {
+        /* Styles for large devices */
+    }
+
+    /* Media query for extra large devices (between 992px and 1200px) */
+    @media (min-width: 992px) and (max-width: 1200px) {
+        /* Styles for extra large devices */
+    }
+
+    /* Media query for extra large devices (above 1200px) */
+    @media (min-width: 1200px) {
+        .container {
+            padding: 10px;;
+        }
+    }

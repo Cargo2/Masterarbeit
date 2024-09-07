@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [],
+  imports: [NotFoundComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })

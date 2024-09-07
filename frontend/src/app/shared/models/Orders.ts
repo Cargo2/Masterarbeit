@@ -12,5 +12,6 @@ export class Order{
     communcation?: string[];
     remote?: number;
     contactdirect?: string;
-    expense?: string;   
+    expense?: string;  
+    startDate?: string; 
 }
