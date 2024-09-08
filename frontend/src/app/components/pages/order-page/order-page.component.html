@@ -1,4 +1,11 @@
-<div class="container" style="background-color: beige;">
+<app-not-found
+[visible]="!order"
+resetLinkRoute="/"
+notFoundMessage="Leider wurden keine Aufträge gefunden"
+resetLinkText="Zurück zur Startseite"
+></app-not-found>
+
+<div *ngIf='order' class="container" style="background-color: beige;">
     <div class="main-content">
         <div style="margin-top: 16px;">
             <h2>{{order.headerText}}</h2>
@@ -7,7 +14,7 @@
     </div>
 </div>
 
-  <div class="container">
+  <div *ngIf='order' class="container">
     <div class="main-content">
         <h2>Beschreibung</h2>
         <p>{{order.description}}</p>
