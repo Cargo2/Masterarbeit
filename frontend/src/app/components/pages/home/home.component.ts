@@ -5,6 +5,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from '../../partials/search/search.component';
 import { NotFoundComponent } from '../../partials/not-found/not-found.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -17,13 +18,19 @@ export class HomeComponent {
 
   orders: Order[] = [];
   constructor( private ordersService:OrdersService, activatedRoute:ActivatedRoute ) {  
+    let ordersObservable:Observable<Order[]>;
+
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm) 
-      this.orders = ordersService.getOrdersBySearchTerm(params.searchTerm)
+        ordersObservable = ordersService.getOrdersBySearchTerm(params.searchTerm);
       else
-      this.orders = ordersService.getAll();
-    })
+        ordersObservable = ordersService.getAll();
+      
+        ordersObservable.subscribe((orders) => {
+          this.orders = orders;
+        })
     
-  }
+    })
 
+  }
 }

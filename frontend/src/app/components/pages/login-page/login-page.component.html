@@ -1,0 +1,32 @@
+<div class="login-container">
+    <div class="login-left">
+      <h2>Login! 👋</h2>
+      <p>Wie wird gestartet?</p>
+      <button class="btn btn-google">Mit Google einloggen</button>
+      <button class="btn btn-apple">Mit Apple einloggen</button>
+      <p>oder mit der E-Mail einloggen</p>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" formControlName="email" placeholder="günter.gras@insteppo.de">
+        <div class="error" *ngIf="formControls.email.errors && isSubmitted">
+            <div *ngIf="formControls.email.errors.required">E-Mail muss gefüllt sein</div>
+            <div *ngIf="formControls.email.errors.email">E-Mail muss gültig sein</div>
+        </div>
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" name="password" placeholder="******">
+        
+        <div class="error" *ngIf="formControls.password.errors && isSubmitted">
+            <div *ngIf="formControls.password.errors.required">Passwort muss gefüllt sein</div>
+        </div>
+        <button type="submit" class="btn btn-signin">Einloggen</button>
+      </form>
+      <p>Sie haben noch keinen Account? <a href="#">Hier gehts zum Registrieren</a></p>
+    </div>
+    <div class="login-right">
+      <div class="login-info">
+        <h3>Warum sollte ich mich einloggen?</h3>
+        <p>Wenn Sie eingeloggt sind, können sie bequem Aufträge und Projekte per Dashboard verwalten und ihr Profil erweitern.</p>
+        <img src="assets/dashboard-example.png" alt="Dashboard example">
+      </div>
+    </div>
+  </div>
