@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../../../services/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login-page',
@@ -14,13 +17,16 @@ export class LoginPageComponent implements OnInit {
   
   loginForm!: FormGroup;
   isSubmitted = false;
-  constructor(private formBuilder:FormBuilder) { }
+  returnUrl = '';
+  constructor(private formBuilder:FormBuilder, private userService:UserService, private activatedRoute:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+
+    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
   }
 
   get formControls() { return this.loginForm.controls; }
@@ -30,7 +36,11 @@ export class LoginPageComponent implements OnInit {
     if(this.loginForm.invalid){
       return;
     }
-    console.log(this.loginForm.value);
+    this.userService.login(
+      {email:this.formControls.email.value, password:this.formControls.password.value}
+    ).subscribe(() => { this.router.navigateByUrl(this.returnUrl); 
+    });  
+
   }
 
 }

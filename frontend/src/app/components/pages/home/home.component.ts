@@ -7,6 +7,7 @@ import { SearchComponent } from '../../partials/search/search.component';
 import { NotFoundComponent } from '../../partials/not-found/not-found.component';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -17,7 +18,7 @@ import { Observable } from 'rxjs';
 export class HomeComponent {
 
   orders: Order[] = [];
-  constructor( private ordersService:OrdersService, activatedRoute:ActivatedRoute ) {  
+  constructor( private ordersService:OrdersService, activatedRoute:ActivatedRoute) {  
     let ordersObservable:Observable<Order[]>;
 
     activatedRoute.params.subscribe((params) => {
