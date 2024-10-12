@@ -31,6 +31,8 @@ export class UserService {
             'Login erfolgreich',
             'Willkommen', { timeOut: 3000, closeButton: true, progressBar: true }
           );
+          console.log("einen user gefunden");
+          console.log(user);
 
         },
         error: (errorReponse) => {

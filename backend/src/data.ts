@@ -48,7 +48,7 @@ export const sampleOrders: any[] = [
             dueDate: new Date(),
             communcation: ['communication1', 'communication2'],
             remote: 1,
-            contactdirect: 'contactdirect1',
+            contactdirect: 'Mirosław Klose',
             expense: 'expense1',
             startDate: '02.05.2024'
         },
@@ -65,7 +65,7 @@ export const sampleOrders: any[] = [
             dueDate: new Date(),
             communcation: ['communication1', 'communication2'],
             remote: 1,
-            contactdirect: 'contactdirect1',
+            contactdirect: 'Michael Schumacher',
             expense: 'expense1',
             startDate: '02.05.2024'
         }
@@ -73,17 +73,21 @@ export const sampleOrders: any[] = [
 
 export const sample_users: any[] = [
     {
+      id: "1",
       name: "John Doe",
       email: "john@gmail.com",
       password: "12345",
       address: "Toronto On",
       isAdmin: true,
+      isConsultant: false,
     },
     {
+      id: "2",
       name: "Jane Doe",
       email: "Jane@gmail.com",
       password: "12345",
       address: "Shanghai",
       isAdmin: false,
+      isConsultant: true,
     },
   ];
