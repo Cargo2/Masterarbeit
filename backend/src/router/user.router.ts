@@ -3,6 +3,9 @@ import { sample_users } from '../data';
 import jwt from 'jsonwebtoken';
 import asynceHandler from 'express-async-handler';
 import { User, UserModel } from '../models/users.models';
+import { HTTP_STATUS } from '../constants/http_status';
+import bcrypt from 'bcryptjs';
+
 
 const router = Router();
 
@@ -27,6 +30,33 @@ router.post('/login', asynceHandler(
         res.status(401).send({ message: 'Invalid email or password' });
     }
 }));
+
+
+router.post('/register', asynceHandler(
+  async (req, res) => {
+    const { name, email, password, address, isConsultant } = req.body;
+    const user = await UserModel.findOne({ email });
+    if (user) {
+      res.status(HTTP_STATUS.BAD_REQUEST).send({ message: 'Benutzer existiert bereits' });
+      return;
+    }  
+    const encryptedPassword = await bcrypt.hash(password, 10);
+
+    const newUser:User = {
+      id:'',
+      name,
+      email: email.toLowerCase(),
+      password: encryptedPassword,
+      isConsultant,
+      address,
+      isAdmin: false,
+      rating: 50,
+    }
+    const dbUser = await UserModel.create(newUser);
+    res.send(generateTokenReponse(dbUser));
+  }
+));
+
 
 const generateTokenReponse = (user : User) => {
     const token = jwt.sign({
