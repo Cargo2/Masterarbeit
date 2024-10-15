@@ -28,12 +28,12 @@ export class RegisterPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      firstName: ['test', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      name: ['test', Validators.required],
+      email: ['Test@gmail.com', [Validators.required, Validators.email]],
+      address: ['Testaddress 1235', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
+      consultant: ['', Validators.required],
       acceptTerms: [false, Validators.requiredTrue]
     }, {
       validator: PasswordMatchValidator('password', 'confirmPassword')
@@ -47,6 +47,11 @@ export class RegisterPageComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
     if (this.registerForm.invalid) {
+      console.log(this.registerForm.invalid);
+      console.log(this.registerForm.errors);
+      console.log(this.registerForm.value);
+      console.log(this.registerForm.controls);
+      console.log(this.registerForm);
       return;
     }
     const fv = this.registerForm.value;
@@ -56,7 +61,7 @@ export class RegisterPageComponent implements OnInit {
       password: fv.password,
       confirmPassword: fv.confirmPassword,
       address: fv.address,
-      isConsultant: fv.isConsultant
+      isConsultant: fv.consultant === 'Berater' ? true : false
     };
     this.userService.register(user).subscribe(_ => {
         this.router.navigateByUrl(this.returnUrl);

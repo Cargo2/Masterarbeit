@@ -6,6 +6,7 @@ import  {routes } from './app.routes';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingComponent } from './components/partials/loading/loading.component';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule, 
     HomeComponent, 
     CommonModule, 
+    LoadingComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
