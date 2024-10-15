@@ -7,6 +7,9 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingComponent } from './components/partials/loading/loading.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 
 
 @Component({
@@ -18,6 +21,11 @@ import { LoadingComponent } from './components/partials/loading/loading.componen
     HomeComponent, 
     CommonModule, 
     LoadingComponent,
+    ReactiveFormsModule,
+    FormlyModule,
+    FormlyBootstrapModule,
+    FormsModule,
+
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

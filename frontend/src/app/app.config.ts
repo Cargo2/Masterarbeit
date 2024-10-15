@@ -6,7 +6,10 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { loadingInterceptor } from './shared/interceptors/loading.interceptor';
-
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyFieldStepper } from './components/pages/createorder-page/stepper.type';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormlyMaterialModule } from '@ngx-formly/material';
 
 
 export const appConfig: ApplicationConfig = {
@@ -19,6 +22,9 @@ export const appConfig: ApplicationConfig = {
         positionClass: 'toast-top-left',
         preventDuplicates: true,
       }),  
+      ReactiveFormsModule,
+      FormlyModule.forRoot( ),
+      FormlyMaterialModule,
     ),
     provideHttpClient(withInterceptors([loadingInterceptor])),
   ],
