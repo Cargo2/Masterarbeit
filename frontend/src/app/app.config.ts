@@ -1,10 +1,12 @@
 import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { loadingInterceptor } from './shared/interceptors/loading.interceptor';
+
 
 
 export const appConfig: ApplicationConfig = {
@@ -16,7 +18,8 @@ export const appConfig: ApplicationConfig = {
         timeOut: 5000,
         positionClass: 'toast-top-left',
         preventDuplicates: true,
-      }),
-    )
+      }),  
+    ),
+    provideHttpClient(withInterceptors([loadingInterceptor])),
   ],
 };
