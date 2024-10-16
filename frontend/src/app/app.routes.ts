@@ -4,6 +4,7 @@ import { OrderPageComponent } from './components/pages/order-page/order-page.com
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { CreateorderPageComponent } from './components/pages/createorder-page/createorder-page.component';
+import { DashboardPageComponent } from './components/pages/dashboard-page/dashboard-page.component';
 
 export const routes: Routes = [
 
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path:'login', component:LoginPageComponent},
     {path:'register', component:RegisterPageComponent},
     {path:'create', component:CreateorderPageComponent},
+    {path:'dashboard', component:DashboardPageComponent},
     
 ];
