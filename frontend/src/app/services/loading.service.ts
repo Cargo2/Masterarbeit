@@ -10,12 +10,10 @@ export class LoadingService {
   constructor() { }
 
   showLoading(){
-    console.log('show loading');
     this.isLoadingSubject.next(true);
   }
 
   hideLoading(){
-    console.log('hide loading');
     this.isLoadingSubject.next(false);
   }
 
