@@ -3,6 +3,9 @@
         <a href="#" routerLink="/" class="logo">ERPMaster</a>
         <nav>
             <ul>
+                <li *ngIf="isAuth()">
+                    <a routerLink="/create">Auftrag erstellen</a>
+                </li>
                 <li *ngIf="!isAuth()">
                     <a routerLink="/login">Login</a>
                 </li>
@@ -15,8 +18,8 @@
                     </div>
                 </li>
                 <li>
-                    <a routerLink="/cart-page">
-                        Cart <span>3</span>
+                    <a routerLink="/dashboard">
+                        Dashboard <span>3</span>
                     </a>
                 </li>
             </ul>

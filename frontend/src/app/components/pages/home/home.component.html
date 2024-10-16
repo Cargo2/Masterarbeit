@@ -1,23 +1,32 @@
 <app-search></app-search>
 
-<div class="card container">
-  <div class="card-body ">
-    <h2 class="card-title text-primary">Aufträge</h2>
-    <app-not-found
-    [visible]="!orders || !orders.length"
-    resetLinkRoute="/"
-    notFoundMessage="Leider wurden keine Aufträge gefunden"
-    resetLinkText="Zurück zur Startseite"
-    ></app-not-found>
-    <ul class="list-group">
-      <a *ngFor="let wa of orders" href="/order/{{wa.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
+<div class="container fluid">
+  <a *ngFor="let wa of orders" href="/order/{{wa.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
+    <h5 class="mb-1 text-bg-dark p-3" style="background-color: aquamarine;">{{wa.headerText}}</h5>
+    <div class="row">
+      
+      <div class="col-lg-7 col-xl-8">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{wa.headerText}}</h5>
+          
           <small>3 days ago</small>
         </div>
         <p class="mb-1">{{wa.description}}</p>
-      </a>
-    </ul>
-  </div>
-
+      </div>
+      <!-- Vertical divider -->
+      <div class="vr" style="height: 250px;"></div>
+      <div class="col-lg-5 col-xl-4">
+      <div>
+        <h5> Module:</h5>
+        <b>{{wa.module}}</b> </div>
+        <hr class="hr" />
+        <div><h5> Technologie:</h5>
+        <b>{{wa.stack}}</b> </div>
+        <hr class="hr" />
+        <div><h5> Startdatum:</h5>
+        <b>{{wa.startDate}}</b> </div>
+      </div>
+    </div>
+  </a>
 </div>
+
+
